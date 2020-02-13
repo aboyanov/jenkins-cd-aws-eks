@@ -27,7 +27,7 @@ pipeline {
 //                     }
 //                 }
                 sh '''
-                    $(aws ecr get-login --no-include-email --region eu-west-1)
+                    $(/usr/local/bin/aws ecr get-login --no-include-email --region eu-west-1)
                     docker push "${ECR_REGISTRY_URI}/demo:${env.BUILD_ID}"
                 '''
 
